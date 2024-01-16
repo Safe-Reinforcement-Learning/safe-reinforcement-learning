@@ -1,4 +1,8 @@
-To build an image from one of the Dockerfiles in this directory, run the following command from the [root of this repository](/).
+To build an image from one of the Dockerfiles in this directory, run one of the following commands with your working directory set to the [root of this repository](/).
 ```bash
-docker build -t saferl/[NAME] -f ./docker/[NAME].Dockerfile ./docker
+# saferl/tensorflow
+docker build -t saferl/tensorflow -f ./docker/tensorflow.Dockerfile ./docker
+
+# saferl/pytorch
+docker build -t saferl/pytorch -f ./docker/pytorch.Dockerfile ./docker
 ```
