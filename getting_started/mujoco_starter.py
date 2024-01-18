@@ -4,7 +4,7 @@
 import gymnasium as gym
 from gymnasium.wrappers.record_video import RecordVideo
 
-env = gym.make('Walker2d-v4', render_mode="rgb_array")
+env = gym.make('Ant-v4', render_mode="rgb_array")
 env = RecordVideo(env, './video', step_trigger=lambda s: s == 0, video_length=500)
 observation, info = env.reset()
 
