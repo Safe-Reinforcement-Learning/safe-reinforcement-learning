@@ -5,4 +5,7 @@ ADD requirements.txt .
 RUN pip install -r requirements.txt
 RUN rm requirements.txt
 
+# Xvfb acts as our graphics server in Docker
+RUN apt-get update && apt-get -y install xvfb
+
 CMD ["/bin/bash"]
