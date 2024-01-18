@@ -6,3 +6,6 @@ docker build -t saferl/tensorflow -f ./docker/tensorflow.Dockerfile ./docker
 # saferl/pytorch
 docker build -t saferl/pytorch -f ./docker/pytorch.Dockerfile ./docker
 ```
+
+Make sure to occasionally run `docker image prune` to remove dangling images that may have been created in the process of rebuilding `saferl/tensorflow` and `saferl/pytorch`.
+Dangling images are denoted by `<none>` in the list displayed after running `docker images`.

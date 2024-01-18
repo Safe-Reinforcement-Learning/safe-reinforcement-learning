@@ -4,4 +4,6 @@ ADD requirements.txt .
 RUN pip install -r requirements.txt
 RUN rm requirements.txt
 
+RUN apt-get update && apt-get -y install xvfb
+
 CMD ["/bin/bash"]
