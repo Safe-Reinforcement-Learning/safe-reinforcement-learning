@@ -8,7 +8,8 @@ RUN rm requirements.txt
 # Xvfb acts as our graphics server in Docker
 RUN apt-get update && apt-get -y install xvfb
 
-# Installs neovim (you can ignore this)
+RUN pip install safety-gymnasium
+
 RUN apt-get -y install neovim
 
 CMD ["/bin/bash"]
