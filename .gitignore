@@ -187,6 +187,5 @@ Temporary Items
 .apdisk
 
 # Video-related
-video/
-videos/
+*video*
 *.mp4
