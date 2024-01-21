@@ -10,6 +10,11 @@ RUN apt-get update && apt-get -y install xvfb
 
 RUN pip install safety-gymnasium
 
-RUN apt-get -y install neovim
+RUN curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage 
+RUN chmod u+x nvim.appimage 
+RUN ./nvim.appimage --appimage-extract
+RUN ./squashfs-root/AppRun --version
+RUN mv squashfs-root /
+RUN ln -s /squashfs-root/AppRun /usr/bin/nvim
 
 CMD ["/bin/bash"]
