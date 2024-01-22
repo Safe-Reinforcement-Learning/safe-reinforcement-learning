@@ -11,4 +11,9 @@ RUN rm requirements.txt
 # Xvfb acts as our graphics server in Docker
 RUN apt-get update && apt-get -y install xvfb
 
+# Install tmux and screen for asynchronous code execution
+RUN apt-get update && apt-get -y install tmux screen
+
+RUN pip install safety-gymnasium
+
 CMD ["/bin/bash"]
