@@ -189,3 +189,6 @@ Temporary Items
 # Video-related
 *video*
 *.mp4
+
+# Models
+*.pkl
