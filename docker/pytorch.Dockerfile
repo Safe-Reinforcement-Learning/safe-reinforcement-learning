@@ -17,6 +17,6 @@ RUN apt-get update && apt-get -y install tmux screen
 RUN pip install safety-gymnasium
 
 RUN git clone https://github.com/Safe-Reinforcement-Learning/omnisafe.git
-RUN pip install -e omnisafe
+RUN pip install -e omnisafe --config-settings editable_mode=compat
 
 CMD ["/bin/bash"]
