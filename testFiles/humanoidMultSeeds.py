@@ -3,9 +3,7 @@
 
 import omnisafe
 from omnisafe.common.experiment_grid import ExperimentGrid
-#from omnisafe.typing import NamedTuple, Tuple
 from omnisafe.utils.exp_grid_tools import train
-from multiprocessing import Process
 
 totSteps = 10240000
 perEpoch = 1024
@@ -18,7 +16,6 @@ grid = ExperimentGrid(exp_name='base')
 # Set the algorithms.
 base_policy = ['PPO',
                'TRPO']
-
 
 # Set the environments.
 m_envs = [
