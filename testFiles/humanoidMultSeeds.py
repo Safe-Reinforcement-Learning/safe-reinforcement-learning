@@ -1,7 +1,6 @@
 # Sam
 # Testing base algorithms on humanoid on multiple seeds
 
-import omnisafe
 from omnisafe.common.experiment_grid import ExperimentGrid
 from omnisafe.utils.exp_grid_tools import train
 
@@ -22,7 +21,6 @@ m_envs = [
     'SafetyHumanoidVelocity-v1'
 ]
 
-
 grid.add('env_id', m_envs)
 grid.add('logger_cfgs:use_wandb', [useWandB])
 grid.add('logger_cfgs:use_tensorboard', [True])
@@ -34,5 +32,6 @@ grid.add('algo_cfgs:steps_per_epoch', [perEpoch])
 grid.add('seed', [30, 31, 32, 33, 34, 35, 36, 37, 38, 39])
 
 grid.add('algo', base_policy)
+
 
 grid.run(train, num_pool=20, parent_dir='resultsHumanoidMultSeeds')

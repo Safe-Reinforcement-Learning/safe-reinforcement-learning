@@ -1,7 +1,6 @@
 # Ian
 # Increasing the steps per epoch and testing on multiple costs using PPOLag and TRPOLag, car. 
 
-import omnisafe
 from omnisafe.common.experiment_grid import ExperimentGrid
 from omnisafe.utils.exp_grid_tools import train
 from multiprocessing import Process
@@ -21,8 +20,6 @@ egLag5 = ExperimentGrid(exp_name='lag1fm')
 # Set the algorithms.
 lagNoSim = ['PPOLag',
                'TRPOLag']
-# sim = ['PPOSimmerPID',
-#                'TRPOSimmerPID']
 
 # Set the environments.
 m_envs = [
@@ -31,7 +28,6 @@ m_envs = [
 
 lags = [egLag1, egLag2, egLag3, egLag4, egLag5]
 
-#for grid in grids: 
 for grid in lags:
     grid.add('env_id', m_envs)
     grid.add('logger_cfgs:use_wandb', [useWandB])
@@ -41,21 +37,21 @@ for grid in lags:
     grid.add('train_cfgs:torch_threads', [1])
     grid.add('train_cfgs:total_steps', [totSteps])
     grid.add('algo_cfgs:steps_per_epoch', [perEpoch])
-    grid.add('seed', [1])
+    grid.add('seed', [20])
 
 costs = [25, 50, 100, 150, 200]
 
 for i in range(5):
-
     lags[i].add('algo', lagNoSim)
     lags[i].add('lagrange_cfgs:cost_limit', [costs[i]])
+
 
 def experiment_grid_runner(grid, thunk, num_pool, parent_dir):
     grid.run(thunk, num_pool=num_pool, parent_dir=parent_dir)
 
 processes = []
 for i in range(5):
-    p = Process(target=experiment_grid_runner, args=(lags[i], train, 4, f'expLagEpCost{i + 1}'))
+    p = Process(target=experiment_grid_runner, args=(lags[i], train, 2, f'expLagEpCost{i + 1}'))
     processes.append(p)
     p.start()
 

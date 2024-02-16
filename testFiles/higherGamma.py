@@ -1,7 +1,6 @@
 # Sam 
 # testing gamma of .999 on car, PPOLag and TRPOLag, cost limit 100. 
 
-import omnisafe
 from omnisafe.common.experiment_grid import ExperimentGrid
 from omnisafe.utils.exp_grid_tools import train
 
@@ -20,7 +19,6 @@ lagrangianAlgos = ['PPOLag',
 m_envs = [
     'SafetyCarGoal2-v0'
 ]
-
 
 lags.add('env_id', m_envs)
 lags.add('logger_cfgs:use_wandb', [useWandB])
