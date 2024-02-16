@@ -33,7 +33,7 @@ for grid in grids:
     grid.add('train_cfgs:torch_threads', [1])
     grid.add('train_cfgs:total_steps', [totSteps])
     grid.add('algo_cfgs:steps_per_epoch', [perEpoch])
-    grid.add('seed', [1])
+    grid.add('seed', [10])
 
 grid1.add('algo', base_policy)
 grid1.add('algo_cfgs:target_kl', [.2, .02, .002])
